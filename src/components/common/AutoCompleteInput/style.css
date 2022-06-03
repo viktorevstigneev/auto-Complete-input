@@ -1,0 +1,98 @@
+.suggestion {
+	min-width: 100px;
+	width: 200px;
+	position: relative;
+}
+
+.suggest__wrapper {
+	position: relative;
+	width: 100%;
+	background: white;
+	border-radius: 100px;
+}
+
+.suggestion__item {
+	border: 2px solid rgb(255, 255, 255);
+	background: rgb(255, 214, 214);
+	color: black;
+	font-size: 0.8em;
+
+	cursor: pointer;
+	width: 80%;
+	transition: 0.5s;
+	padding: 5px;
+	text-align: center;
+	margin: 0;
+}
+
+.suggestion__item:last-child {
+	border-bottom: 2px solid rgb(255, 255, 255);
+	border-bottom-right-radius: 40px;
+	border-bottom-left-radius: 40px;
+}
+
+.suggestion__item:hover {
+	background: rgb(244, 158, 158);
+	color: rgb(43, 43, 43);
+}
+
+.suggestion__input {
+	border: 2px solid white;
+	background: white;
+	color: black;
+
+	border-radius: 100px;
+	width: 80%;
+	outline: none;
+	padding: 5px;
+}
+
+.suggestion__input::placeholder {
+	color: black;
+}
+
+.suggestion__clear {
+	position: absolute;
+	right: 10px;
+	top: 8px;
+	background: transparent;
+	border: none;
+	cursor: pointer;
+}
+
+.suggestion__message {
+	text-align: center;
+	color: rgb(239, 239, 99);
+	margin-top: 10px;
+	font-size: 0.5em;
+
+	width: 100%;
+	position: absolute;
+}
+
+.suggestion__list {
+	z-index: 999;
+	left: 13px;
+	margin: 0;
+	width: 100%;
+	max-height: 120px;
+	overflow-y: auto;
+	position: absolute;
+}
+
+@media (max-width: 320px) {
+	.suggestion {
+		width: 100%;
+	}
+
+	.suggestion__item {
+		width: 75%;
+	}
+
+	.suggestion__clear {
+	
+	right: 3px;
+
+}
+
+}

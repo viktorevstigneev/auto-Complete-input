@@ -1,0 +1,20 @@
+.main{
+  width: 50%;
+  margin: 5% auto;
+  border: 1px solid rgb(206, 118, 118);
+  border-radius: 100px;
+  padding: 30px;
+}
+
+.main__title{
+  text-align: center;
+}
+
+.main__button{
+  width: 100%;
+  margin-top: 70px;
+  border-radius: 100px;
+  padding: 5px;
+  border: none;
+  cursor: pointer;
+}
