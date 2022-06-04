@@ -26,16 +26,17 @@ optionsColor      | string    | style string e.g "black"
 ## usage example
 
 const MyApp = () => {
-const [inputValue, setInputValue] = useState('');
-const handleChange = (value) => {
-setInputValue(value);
-};
+    const [inputValue, setInputValue] = useState('');
+    const handleChange = (value) => {
+    setInputValue(value);
+    };
 
     const suggestionValue = (value) => value.field1;
 
     const handleFormSubmit = (evt) => {
     	evt.preventDefault();
     	const formData = new FormData(evt.target);
+      alert(...formData)
     };
 
     return (
