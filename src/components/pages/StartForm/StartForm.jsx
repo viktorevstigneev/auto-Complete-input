@@ -16,7 +16,6 @@ const StartForm = () => {
 
 	const handleFormSubmit = (evt) => {
 		evt.preventDefault();
-		evt.stopPropagation();
 		const formData = new FormData(evt.target);
 		console.log('formData: ', ...formData);
 	};
@@ -28,14 +27,17 @@ const StartForm = () => {
 				data={[
 					{ field1: 'value1.1 value1.1 value1.1 value1.1', field2: 'value1.2' },
 					{ field1: 'value2.1 value2.1 value2.1 value2.1', field2: 'value2.2' },
-				]}
-				value={inputValue}
-				onChange={handleChange}
-				suggestionValue={suggestionValue}
-				placeHolder="Type something"
-				name="read"
+				]} // array of any
+				value={inputValue} // value state
+				onChange={handleChange} // func (value) => {}
+				suggestionValue={suggestionValue} // func (value) => value.field1;
+				placeHolder="Type something" //string
+				name="read" // string
 				hasClearButton={true} // true/false
-				filterType="" // start/end/middle/all
+				filterType="all" // start/end/middle/all
+				// width="50%" //style string
+				// optionsBackground="red"
+				// optionsColor="white"
 			/>
 			<button className="main__button" type="submit">
 				Get form data

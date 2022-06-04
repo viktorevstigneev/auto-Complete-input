@@ -22,7 +22,7 @@
 	transition: 0.5s;
 	padding: 5px;
 	text-align: center;
-	margin: 0;
+	margin: 0 auto;
 }
 
 .suggestion__item:last-child {
@@ -64,7 +64,7 @@
 	text-align: center;
 	color: rgb(239, 239, 99);
 	margin-top: 10px;
-	font-size: 0.5em;
+	font-size: 0.7em;
 
 	width: 100%;
 	position: absolute;
@@ -74,7 +74,7 @@
 	z-index: 999;
 	left: 13px;
 	margin: 0;
-	width: 100%;
+	width: 90%;
 	max-height: 120px;
 	overflow-y: auto;
 	position: absolute;
@@ -82,17 +82,28 @@
 
 @media (max-width: 320px) {
 	.suggestion {
-		width: 100%;
+		width: 100% !important;
 	}
 
 	.suggestion__item {
-		width: 75%;
+		width: 60% !important;
 	}
 
 	.suggestion__clear {
-	
-	right: 3px;
-
+		right: 3px;
+	}
 }
 
+@media (max-width: 620px) {
+	.suggestion {
+		width: 90% !important;
+	}
+
+	.suggestion__item {
+		width: 60% !important;
+	}
+
+	.suggestion__clear {
+		right: 0;
+	}
 }

@@ -4,7 +4,19 @@ import PropTypes from 'prop-types';
 import { EMPTY_STRING, NO_MATCHES_MESSAGE, EMPTY_FIELD_MESSAGE, MIN_ARRAY_LENGTH } from '../../../constants';
 import './style.css';
 
-const AutoCompleteInput = ({ data, value, onChange, suggestionValue, placeHolder, name, hasClearButton }) => {
+const AutoCompleteInput = ({
+	data,
+	value,
+	onChange,
+	suggestionValue,
+	placeHolder,
+	name,
+	hasClearButton,
+	filterType,
+	width,
+	optionsBackground,
+	optionsColor,
+}) => {
 	const [filteredData, setFilteredData] = useState([]);
 	const [validationMessage, setValidationMessage] = useState('');
 
@@ -12,10 +24,21 @@ const AutoCompleteInput = ({ data, value, onChange, suggestionValue, placeHolder
 		const upperSuggestionValue = suggestionValue(item).toUpperCase();
 		const upperInputString = inputString.toUpperCase();
 
-		if (upperSuggestionValue.includes(upperInputString)) {
-			return true;
+		switch (filterType) {
+			case 'all':
+				return upperSuggestionValue.includes(upperInputString);
+			case 'start':
+				return upperSuggestionValue.startsWith(upperInputString);
+			case 'end':
+				return upperSuggestionValue.endsWith(upperInputString);
+			case 'middle':
+				return !upperSuggestionValue.startsWith(upperInputString) && !upperSuggestionValue.endsWith(upperInputString)
+					? upperSuggestionValue.includes(upperInputString)
+					: false;
+
+			default:
+				return false;
 		}
-		return false;
 	};
 
 	const renderSuggestionList = (strainedData) =>
@@ -23,6 +46,7 @@ const AutoCompleteInput = ({ data, value, onChange, suggestionValue, placeHolder
 		strainedData.map((item) => (
 			<li
 				className="suggestion__item"
+				style={{ background: optionsBackground, color: optionsColor }}
 				key={suggestionValue(item)}
 				data-name={suggestionValue(item)}
 				onClick={handleSuggestionItemClick}
@@ -47,10 +71,11 @@ const AutoCompleteInput = ({ data, value, onChange, suggestionValue, placeHolder
 		evt.preventDefault();
 		onChange('');
 		setFilteredData(null);
+		setValidationMessage('');
 	};
 
 	return (
-		<div className="suggestion">
+		<div className="suggestion" style={{width}}>
 			<div className="suggest__wrapper">
 				<input
 					className="suggestion__input"
@@ -92,13 +117,17 @@ const AutoCompleteInput = ({ data, value, onChange, suggestionValue, placeHolder
 };
 
 AutoCompleteInput.propTypes = {
-	data: PropTypes.any,
-	value: PropTypes.any,
-	onChange: PropTypes.any,
-	suggestionValue: PropTypes.any,
-	placeHolder: PropTypes.any,
-	name: PropTypes.any,
-	hasClearButton: PropTypes.any,
+	data: PropTypes.array,
+	value: PropTypes.string,
+	onChange: PropTypes.func,
+	suggestionValue: PropTypes.func,
+	placeHolder: PropTypes.string,
+	name: PropTypes.string,
+	hasClearButton: PropTypes.bool,
+	filterType: PropTypes.string,
+  with: PropTypes.string,
+  optionsBackground: PropTypes.string,
+  optionsColor: PropTypes.string
 };
 
 AutoCompleteInput.defaultProps = {};
