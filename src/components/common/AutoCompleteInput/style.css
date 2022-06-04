@@ -1,28 +1,32 @@
 .suggestion {
-	min-width: 100px;
-	width: 200px;
 	position: relative;
+	width: 200px;
+	min-width: 100px;
 }
 
 .suggest__wrapper {
 	position: relative;
 	width: 100%;
-	background: white;
 	border-radius: 100px;
+
+	background: white;
 }
 
 .suggestion__item {
+	width: 80%;
 	border: 2px solid rgb(255, 255, 255);
+	padding: 5px;
+	margin: 0 auto;
+
+	text-align: center;
+
 	background: rgb(255, 214, 214);
 	color: black;
+
 	font-size: 0.8em;
 
 	cursor: pointer;
-	width: 80%;
 	transition: 0.5s;
-	padding: 5px;
-	text-align: center;
-	margin: 0 auto;
 }
 
 .suggestion__item:last-child {
@@ -37,14 +41,15 @@
 }
 
 .suggestion__input {
+	width: 80%;
 	border: 2px solid white;
+	border-radius: 100px;
+	padding: 5px;
+
 	background: white;
 	color: black;
 
-	border-radius: 100px;
-	width: 80%;
 	outline: none;
-	padding: 5px;
 }
 
 .suggestion__input::placeholder {
@@ -55,29 +60,33 @@
 	position: absolute;
 	right: 10px;
 	top: 8px;
-	background: transparent;
 	border: none;
+
+	background: transparent;
+
 	cursor: pointer;
 }
 
 .suggestion__message {
-	text-align: center;
-	color: rgb(239, 239, 99);
-	margin-top: 10px;
-	font-size: 0.7em;
-
-	width: 100%;
 	position: absolute;
+	width: 100%;
+	margin-top: 10px;
+
+	color: rgb(239, 239, 99);
+
+	text-align: center;
+	font-size: 0.7em;
 }
 
 .suggestion__list {
-	z-index: 999;
-	left: 13px;
+	position: absolute;
+	left: 10px;
 	margin: 0;
 	width: 90%;
 	max-height: 120px;
+
 	overflow-y: auto;
-	position: absolute;
+	z-index: 999;
 }
 
 @media (max-width: 320px) {

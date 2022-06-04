@@ -1,20 +1,49 @@
-.main{
-  width: 50%;
-  margin: 5% auto;
-  border: 1px solid rgb(206, 118, 118);
-  border-radius: 100px;
-  padding: 30px;
+.main {
+	width: 50%;
+	margin: 5% auto;
+	border: 1px solid rgb(206, 118, 118);
+	border-radius: 100px;
+	padding: 30px;
 }
 
-.main__title{
-  text-align: center;
+.main__title {
+	text-align: center;
 }
 
-.main__button{
-  width: 100%;
-  margin-top: 70px;
-  border-radius: 100px;
-  padding: 5px;
-  border: none;
-  cursor: pointer;
+.main__button {
+	width: 100%;
+	margin-top: 70px;
+	border-radius: 100px;
+	border: none;
+	padding: 5px;
+
+	cursor: pointer;
+}
+
+.modal{
+	position: fixed;
+	top: 10%;
+	left: 40%;
+	width: 350px;
+	height: 300px;
+	padding: 20px;
+	border-radius: 10px;
+
+	background: rgb(137, 198, 161);
+}
+
+.modal__close{
+	position: absolute;
+	top: 0;
+	right: 0;
+	border: 1px solid black;
+
+	background: transparent;
+	border-radius: 10px;
+
+	cursor: pointer;
+}
+
+.modal__close:hover{
+	background: yellow
 }

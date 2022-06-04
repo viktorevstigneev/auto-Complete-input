@@ -75,7 +75,7 @@ const AutoCompleteInput = ({
 	};
 
 	return (
-		<div className="suggestion" style={{width}}>
+		<div className="suggestion" style={{ width }}>
 			<div className="suggest__wrapper">
 				<input
 					className="suggestion__input"
@@ -125,11 +125,23 @@ AutoCompleteInput.propTypes = {
 	name: PropTypes.string,
 	hasClearButton: PropTypes.bool,
 	filterType: PropTypes.string,
-  with: PropTypes.string,
-  optionsBackground: PropTypes.string,
-  optionsColor: PropTypes.string
+	width: PropTypes.string,
+	optionsBackground: PropTypes.string,
+	optionsColor: PropTypes.string,
 };
 
-AutoCompleteInput.defaultProps = {};
+AutoCompleteInput.defaultProps = {
+	data: [],
+	value: '',
+	onChange: () => {},
+	suggestionValue: () => {},
+	placeHolder: '',
+	name: '',
+	hasClearButton: false,
+	filterType: '',
+	width: '',
+	optionsBackground: '',
+	optionsColor: '',
+};
 
 export default AutoCompleteInput;
